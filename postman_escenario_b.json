@@ -1,0 +1,296 @@
+{
+  "info": {
+    "_postman_id": "74907b3f-f20a-47a2-9b6d-4cc875917a96",
+    "name": "Polo Norte - Escenario B",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59050102",
+    "_collection_link": "https://go.postman.co/collection/59050102-74907b3f-f20a-47a2-9b6d-4cc875917a96?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Sin token",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\"nombre\":\"Rodolfo\",\"edad\":6,\"nivelEnergia\":90\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rol insuficiente",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-elfo-456",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Creación exitosa (201)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-jefe-establo-123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"Rodolfo\",\"edad\":6,\"nivelEnergia\":90}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Consulta 200",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos/99f35bc3-52be-4e08-a80d-20b463c6a208",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos",
+            "99f35bc3-52be-4e08-a80d-20b463c6a208"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Entrada inválida (400)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-jefe-establo-123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"nombre\":\"\",\"edad\":99,\"nivelEnergia\":150}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Recurso inexistente (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos/id-que-no-existe",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos",
+            "id-que-no-existe"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear reno 201",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-jefe-establo-123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Trueno\",\r\n  \"edad\": 5,\r\n  \"nivelEnergia\": 40\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Intentar asignarlo al vuelo 409",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "token-jefe-establo-123",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/renos/8dd4a45c-33b4-49ca-b015-b2b46761101e/asignacion",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "renos",
+            "8dd4a45c-33b4-49ca-b015-b2b46761101e",
+            "asignacion"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fallo SOAP (202",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
